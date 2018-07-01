@@ -10,12 +10,22 @@ describe('Node creation', () => {
     expect(node.value).toBe(value);
   });;
 
+  it('appendChild() adds child',() => {
+    let value = 'A';
+    let node = new Node(value);
+    
+    node.appendChild(1);
+    expect(node.children).toEqual([1]);
+  });
+
   it('appendChild() adds children',() => {
     let value = 'A';
     let node = new Node(value);
     
-    node.children.push([1]);
-    expect(node.children).toBe(1);
+    node.appendChild(1);
+    node.appendChild(2);
+    node.appendChild(3);
+    expect(node.children).toEqual([1,2,3]);
   });
 
 });
